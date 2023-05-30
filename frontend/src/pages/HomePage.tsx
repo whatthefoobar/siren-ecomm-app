@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useReducer } from "react";
+import { Helmet } from "react-helmet-async";
 import { Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { ApiError } from "../types/ApiError";
@@ -66,6 +66,9 @@ const HomePage = () => {
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <Row>
+      <Helmet>
+        <title>TS Amazona</title>
+      </Helmet>
       {products.map((product) => (
         <Col key={product.slug} sm={6} md={4} lg={3}>
           <ProductItem product={product} />
