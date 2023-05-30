@@ -14,3 +14,7 @@
 a {
   text-decoration: none;
 }
+
+.rating span {
+  color: #ffc000;
+}
