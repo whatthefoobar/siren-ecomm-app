@@ -8,4 +8,8 @@ const apiClient = axios.create({
   },
 });
 
+// const baseURL =
+//   process.env.NODE_ENV === "development" ? "http://localhost:4000/" : "/";
+// console.log(baseURL);
+
 export default apiClient;

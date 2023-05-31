@@ -18,3 +18,9 @@ a {
 .rating span {
   color: #ffc000;
 }
+
+img.large {
+  width: 100%;
+  max-height: 700px;
+  object-fit: contain;
+}
