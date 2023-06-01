@@ -11,6 +11,7 @@ function App() {
   } = useContext(Store);
 
   useEffect(() => {
+    //curtesy of bootstrap
     document.body.setAttribute("data-bs-theme", mode);
   }, [mode]);
 

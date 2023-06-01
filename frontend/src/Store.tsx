@@ -23,9 +23,10 @@ function reducer(state: AppState, action: Action): AppState {
       return state;
   }
 }
-
+//reset to initial state
 const defaultDispatch: React.Dispatch<Action> = () => initialState;
 
+// createContext uses a default values object
 const Store = React.createContext({
   state: initialState,
   dispatch: defaultDispatch,
