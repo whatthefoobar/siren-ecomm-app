@@ -24,3 +24,6 @@ img.large {
   max-height: 700px;
   object-fit: contain;
 }
+img.thumbnail {
+  height: 80px;
+}

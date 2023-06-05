@@ -4,7 +4,8 @@ import { Link, Outlet } from "react-router-dom";
 import { Store } from "./Store";
 import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
-import { LinkContainer } from "react-router-bootstrap";
+// import { LinkContainer } from "react-router-bootstrap";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const {
@@ -22,13 +23,16 @@ function App() {
   };
   return (
     <div className="d-flex flex-column vh-100">
-      <ToastContainer position="bottom-center" limit={1} />
+      <ToastContainer position="top-left" limit={1} />
       <header>
         <Navbar expand="lg">
           <Container>
-            <LinkContainer to="/">
+            <Link to="/">
               <Navbar.Brand> Siren</Navbar.Brand>
-            </LinkContainer>
+            </Link>
+            {/* <LinkContainer to="/"> */}
+
+            {/* </LinkContainer> */}
           </Container>
           <Nav>
             <Button variant={mode} onClick={switchModeHandler}>

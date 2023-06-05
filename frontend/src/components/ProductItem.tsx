@@ -15,11 +15,12 @@ interface IProps {
 const ProductItem = ({ product }: IProps) => {
   const { state, dispatch } = useContext(Store);
   const {
-    cart: { cartItems },
+    cart: { cartItems }, // get cartItems from cart not rename cart
   } = state;
 
   const addToCartHandler = (item: CartItem) => {
-    const existItem = cartItems.find((x) => x._id === product._id);
+    // look in context to see if product is already in context state if so increase quantity
+    const existItem = cartItems.find((item) => item._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     if (product.countInStock < quantity) {
       alert("Sorry. Product is out of stock");
