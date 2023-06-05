@@ -19,14 +19,18 @@ export default function CartPage() {
   } = useContext(Store);
 
   const updateCartHandler = (item: CartItem, quantity: number) => {
-    if (item.countInStock < quantity) {
-      toast.warn("Sorry. Product is out of stock");
-      return;
+    if (quantity !== 0) {
+      if (item.countInStock < quantity) {
+        toast.warn("Sorry. Product is out of stock");
+        return;
+      }
+      dispatch({
+        type: "CART_ADD_ITEM",
+        payload: { ...item, quantity },
+      });
+    } else {
+      dispatch({ type: "CART_REMOVE_ITEM", payload: item });
     }
-    dispatch({
-      type: "CART_ADD_ITEM",
-      payload: { ...item, quantity },
-    });
   };
   const checkoutHandler = () => {
     navigate("/signin?redirect=/shipping");
@@ -67,7 +71,7 @@ export default function CartPage() {
                           updateCartHandler(item, item.quantity - 1)
                         }
                         variant={mode}
-                        disabled={item.quantity === 1}
+                        // disabled={item.quantity === 1}
                       >
                         <i className="fas fa-minus-circle"></i>
                       </Button>{" "}
@@ -112,7 +116,7 @@ export default function CartPage() {
                   <div className="d-grid">
                     <Button
                       type="button"
-                      variant="secondary"
+                      variant="primary"
                       onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
                     >

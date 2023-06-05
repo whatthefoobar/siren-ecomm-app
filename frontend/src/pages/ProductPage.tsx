@@ -99,7 +99,7 @@ const ProductPage = () => {
                   <ListGroup.Item>
                     {/* to have the btn fullwidth */}
                     <div className="d-grid">
-                      <Button variant="secondary" onClick={addToCartHandler}>
+                      <Button variant="primary" onClick={addToCartHandler}>
                         Add to Cart
                       </Button>
                     </div>

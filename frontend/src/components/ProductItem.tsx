@@ -50,7 +50,7 @@ const ProductItem = ({ product }: IProps) => {
           </Button>
         ) : (
           <Button
-            variant="secondary"
+            variant="primary"
             onClick={() => addToCartHandler(convertProductToCartItem(product))}
           >
             Add to cart
