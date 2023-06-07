@@ -10,7 +10,9 @@ import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
 
 export default function SigninPage() {
+  // we need a redirect /signin?redirect=/shipping in case not logged in but if logged in /shipping
   const navigate = useNavigate();
+  //   pathname: '/signin', search: '?redirect=/shipping'...}
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
   const redirect = redirectInUrl ? redirectInUrl : "/";
@@ -25,11 +27,13 @@ export default function SigninPage() {
 
   const submitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
+    //backend req
     try {
       const data = await signin({
         email,
         password,
       });
+      //update state based on backend res
       dispatch({ type: "USER_SIGNIN", payload: data });
       localStorage.setItem("userInfo", JSON.stringify(data));
       navigate(redirect);

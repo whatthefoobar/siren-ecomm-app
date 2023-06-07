@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { productRouter } from "./routers/productRouter";
 import { seedRouter } from "./routers/seedRouter";
+import { userRouter } from "./routers/userRouter";
 
 dotenv.config();
 
@@ -25,6 +26,9 @@ app.use(
     origin: ["http://127.0.0.1:5173"],
   })
 );
+// mw to access the body pf the post request
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // not needed but I like it
 app.get("/", (req: Request, res: Response) => {
@@ -33,6 +37,7 @@ app.get("/", (req: Request, res: Response) => {
 
 //routes here via routers
 app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
 app.use("/api/seed", seedRouter);
 
 // previously
