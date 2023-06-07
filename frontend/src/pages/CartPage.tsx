@@ -7,7 +7,7 @@ import MessageBox from "../components/MessageBox";
 import { Store } from "../Store";
 import { CartItem } from "../types/Cart";
 
-export default function CartPage() {
+const CartPage = () => {
   const navigate = useNavigate();
 
   const {
@@ -131,4 +131,5 @@ export default function CartPage() {
       </Row>
     </div>
   );
-}
+};
+export default CartPage;

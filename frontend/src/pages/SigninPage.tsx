@@ -8,8 +8,7 @@ import { useSigninMutation } from "../hooks/userHooks";
 import { Store } from "../Store";
 import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
-
-export default function SigninPage() {
+const SigninPage = () => {
   // we need a redirect /signin?redirect=/shipping in case not logged in but if logged in /shipping
   const navigate = useNavigate();
   //   pathname: '/signin', search: '?redirect=/shipping'...}
@@ -84,4 +83,5 @@ export default function SigninPage() {
       </Form>
     </Container>
   );
-}
+};
+export default SigninPage;
