@@ -8,7 +8,7 @@ import { Store } from "../Store";
 import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
 
-export default function SignupPage() {
+const SignupPage = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
@@ -100,4 +100,6 @@ export default function SignupPage() {
       </Form>
     </Container>
   );
-}
+};
+
+export default SignupPage;

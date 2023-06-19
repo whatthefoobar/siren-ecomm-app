@@ -10,7 +10,7 @@ import { Store } from "../Store";
 import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
 
-export default function PlaceOrderPage() {
+const PlaceOrderPage = () => {
   const navigate = useNavigate();
 
   const { state, dispatch } = useContext(Store);
@@ -157,7 +157,7 @@ export default function PlaceOrderPage() {
                     >
                       Place Order
                     </Button>
-                    {isLoading && <LoadingBox></LoadingBox>}
+                    {isLoading && <LoadingBox />}
                   </div>
                 </ListGroup.Item>
               </ListGroup>
@@ -167,4 +167,5 @@ export default function PlaceOrderPage() {
       </Row>
     </div>
   );
-}
+};
+export default PlaceOrderPage;
