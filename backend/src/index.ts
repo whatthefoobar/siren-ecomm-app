@@ -2,6 +2,7 @@ import cors from "cors";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import { keyRouter } from "./routers/keyRouter";
 import { productRouter } from "./routers/productRouter";
 import { seedRouter } from "./routers/seedRouter";
 import { userRouter } from "./routers/userRouter";
@@ -41,6 +42,7 @@ app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/seed", seedRouter);
+app.use("/api/keys", keyRouter);
 
 // previously
 // app.get("/api/products/:slug", (req: Request, res: Response) => {
