@@ -16,7 +16,7 @@ export const sampleProducts: Product[] = [
     description: "high quality product",
   },
   {
-    name: "Ralph Lauren hat",
+    name: "Ralph Lauren grey felt hat",
     slug: "ralph-lauren-hat",
     category: "Hats",
     image: "../images/p2.jpg",
@@ -28,7 +28,7 @@ export const sampleProducts: Product[] = [
     description: "high quality product",
   },
   {
-    name: "Lacoste shirt",
+    name: "Lacoste linnen mix shirt",
     slug: "lacoste-shirt",
     category: "Shirts",
     image: "../images/p3.jpg",
@@ -40,7 +40,7 @@ export const sampleProducts: Product[] = [
     description: "high quality product",
   },
   {
-    name: "Only sweater",
+    name: "Only cable knit sweater",
     slug: "only-sweater",
     category: "Sweaters",
     image: "../images/p4.jpg",

@@ -1,6 +1,14 @@
-import { Container } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
-import Footer from "./components/Footer";
+import { useContext, useEffect } from "react";
+import {
+  Badge,
+  Button,
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
+import { Link, Outlet } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NavigationBar from "./components/NavigationBar";
@@ -8,17 +16,21 @@ import NavigationBar from "./components/NavigationBar";
 function App() {
   return (
     <div className="d-flex flex-column vh-100">
-      <ToastContainer position="top-left" limit={1} />
+      <ToastContainer position="bottom-center" limit={1} />
       <header>
         <NavigationBar />
       </header>
-
       <main>
         <Container className="mt-3">
           <Outlet />
         </Container>
       </main>
-      <Footer />
+      {/* <Footer /> */}
+      <footer className="mt-4">
+        <div className="text-center">
+          All rights reserved ©{new Date().getFullYear()}
+        </div>
+      </footer>
     </div>
   );
 }
