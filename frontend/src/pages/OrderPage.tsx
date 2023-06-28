@@ -37,6 +37,7 @@ const OrderPage = () => {
   const { mutateAsync: payOrder, isLoading: loadingPay } =
     usePayOrderMutation();
 
+  // just for dev purposes not for live
   const testPayHandler = async () => {
     await payOrder({ orderId: orderId! });
     refetch();
