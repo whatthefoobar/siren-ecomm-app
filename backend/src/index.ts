@@ -2,6 +2,7 @@ import cors from "cors";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import path from "path";
 import { keyRouter } from "./routers/keyRouter";
 import { productRouter } from "./routers/productRouter";
 import { seedRouter } from "./routers/seedRouter";
@@ -44,12 +45,18 @@ app.use("/api/orders", orderRouter);
 app.use("/api/seed", seedRouter);
 app.use("/api/keys", keyRouter);
 
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+app.get("*", (req: Request, res: Response) =>
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
+);
+
 // previously
 // app.get("/api/products/:slug", (req: Request, res: Response) => {
 //   res.json(sampleProducts.find((x) => x.slug === req.params.slug));
 // });
 
-const PORT = 4000;
+// const PORT = 4000;
+const PORT: number = parseInt((process.env.PORT || "4000") as string, 10);
 app.listen(PORT, () => {
   console.log(`server started at http://localhost:${PORT}`);
 });
