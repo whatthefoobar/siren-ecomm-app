@@ -28,7 +28,7 @@ const SignupPage = () => {
     }
   }, [navigate, redirect, userInfo]);
 
-  const { mutateAsync: signup, isLoading } = useSignupMutation();
+  const { mutateAsync: signup } = useSignupMutation();
 
   const submitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
