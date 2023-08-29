@@ -16,13 +16,13 @@ import {
   useGetPaypalClientIdQuery,
   usePayOrderMutation,
 } from "../hooks/orderHooks";
-import { Store } from "../Store";
+// import { Store } from "../Store";
 import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
 
 const OrderPage = () => {
-  const { state } = useContext(Store);
-  const { userInfo } = state;
+  // const { state } = useContext(Store);
+  // const { userInfo } = state;
 
   const params = useParams();
   const { id: orderId } = params;
@@ -32,6 +32,7 @@ const OrderPage = () => {
     isLoading,
     error,
     refetch,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   } = useGetOrderDetailsQuery(orderId!);
 
   const { mutateAsync: payOrder, isLoading: loadingPay } =
@@ -39,6 +40,7 @@ const OrderPage = () => {
 
   // just for dev purposes not for live
   const testPayHandler = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     await payOrder({ orderId: orderId! });
     refetch();
     toast.success("Order is paid");
