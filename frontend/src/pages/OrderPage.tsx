@@ -56,6 +56,7 @@ const OrderPage = () => {
         paypalDispatch({
           type: "resetOptions",
           value: {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             clientId: paypalConfig!.clientId,
             currency: "USD",
           },
