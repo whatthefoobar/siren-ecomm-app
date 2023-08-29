@@ -1,14 +1,6 @@
-import { useContext, useEffect } from "react";
-import {
-  Badge,
-  Button,
-  Container,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import { Container } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NavigationBar from "./components/NavigationBar";

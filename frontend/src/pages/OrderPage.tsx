@@ -65,10 +65,11 @@ const OrderPage = () => {
       };
       loadPaypalScript();
     }
-  }, [paypalConfig]);
+  }, [paypalConfig, paypalDispatch]);
 
   const paypalbuttonTransactionProps: PayPalButtonsComponentProps = {
     style: { layout: "vertical" },
+
     createOrder(data, actions) {
       return actions.order
         .create({
