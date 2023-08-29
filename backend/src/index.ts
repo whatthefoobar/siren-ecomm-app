@@ -33,6 +33,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// disable this on deploy
 // not needed but I like it
 // app.get("/", (req: Request, res: Response) => {
 //   res.json("Your API is up and running!");
