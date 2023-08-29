@@ -4,7 +4,7 @@ import {
   SCRIPT_LOADING_STATE,
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Button, Card, Col, ListGroup, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
