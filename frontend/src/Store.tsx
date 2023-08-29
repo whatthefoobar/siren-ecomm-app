@@ -10,7 +10,8 @@ type AppState = {
 
 const initialState: AppState = {
   mode: localStorage.getItem("mode")
-    ? localStorage.getItem("mode")!
+    ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      localStorage.getItem("mode")!
     : window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
@@ -31,7 +32,8 @@ const initialState: AppState = {
     totalPrice: 0,
   },
   userInfo: localStorage.getItem("userInfo")
-    ? JSON.parse(localStorage.getItem("userInfo")!)
+    ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      JSON.parse(localStorage.getItem("userInfo")!)
     : null,
 };
 
