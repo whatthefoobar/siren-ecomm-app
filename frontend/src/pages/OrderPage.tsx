@@ -70,31 +70,30 @@ const OrderPage = () => {
   const paypalbuttonTransactionProps: PayPalButtonsComponentProps = {
     style: { layout: "vertical" },
 
-    createOrder(data, actions) {
-      return actions.order
-        .create({
-          purchase_units: [
-            {
-              amount: {
-                value: order!.totalPrice.toString(),
-              },
+    async createOrder(_data, actions) {
+      const orderID = await actions.order.create({
+        purchase_units: [
+          {
+            amount: {
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              value: order!.totalPrice.toString(),
             },
-          ],
-        })
-        .then((orderID: string) => {
-          return orderID;
-        });
-    },
-    onApprove(data, actions) {
-      return actions.order!.capture().then(async (details) => {
-        try {
-          await payOrder({ orderId: orderId!, ...details });
-          refetch();
-          toast.success("Order is paid successfully");
-        } catch (err) {
-          toast.error(getError(err as ApiError));
-        }
+          },
+        ],
       });
+      return orderID;
+    },
+    async onApprove(_data, actions) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const details = await actions.order!.capture();
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        await payOrder({ orderId: orderId!, ...details });
+        refetch();
+        toast.success("Order is paid successfully");
+      } catch (err) {
+        toast.error(getError(err as ApiError));
+      }
     },
     onError: (err) => {
       toast.error(getError(err as ApiError));
