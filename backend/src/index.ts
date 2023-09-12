@@ -12,7 +12,11 @@ import { orderRouter } from "./routers/orderRouter";
 dotenv.config();
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/TS-Siren";
+// const MONGODB_URI_REMOTE = process.env.MONGODB_URI_REMOTE as string;
+
 mongoose.set("strictQuery", true);
+console.log(MONGODB_URI);
+
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
@@ -46,6 +50,7 @@ app.use("/api/orders", orderRouter);
 app.use("/api/seed", seedRouter);
 app.use("/api/keys", keyRouter);
 
+// for deployment
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 app.get("*", (req: Request, res: Response) =>
   res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
