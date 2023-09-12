@@ -15,7 +15,6 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/TS-Siren";
 // const MONGODB_URI_REMOTE = process.env.MONGODB_URI_REMOTE as string;
 
 mongoose.set("strictQuery", true);
-console.log(MONGODB_URI);
 
 mongoose
   .connect(MONGODB_URI)
