@@ -26,7 +26,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["http://127.0.0.1:5173"],
+    origin: ["http://127.0.0.1:5173", "https://ts-siren-shop.onrender.com"],
   })
 );
 // mw to access the body pf the post request
