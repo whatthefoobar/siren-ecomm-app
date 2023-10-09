@@ -14,12 +14,12 @@ dotenv.config();
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/TS-Siren";
 // console.log(MONGODB_URI);
 
-const MONGODB_URI_REMOTE = process.env.MONGODB_URI_REMOTE as string;
+const MONGODB_URI = process.env.MONGODB_URI as string;
 
 mongoose.set("strictQuery", true);
 
 mongoose
-  .connect(MONGODB_URI_REMOTE)
+  .connect(MONGODB_URI)
   .then(() => {
     console.log("connected to mongodb");
   })
