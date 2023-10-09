@@ -9,6 +9,7 @@ import { useGetProductsQuery } from "../hooks/productHooks";
 
 const HomePage = () => {
   const { data: products, isLoading, error } = useGetProductsQuery();
+  const set = new Set(products);
 
   return isLoading ? (
     <LoadingBox />
@@ -19,7 +20,7 @@ const HomePage = () => {
       <Helmet>
         <title>Siren</title>
       </Helmet>
-      {products?.map((product) => (
+      {Array.from(set).map((product) => (
         <Col key={product.slug} sm={6} md={4} lg={3}>
           <ProductItem product={product} />
         </Col>
