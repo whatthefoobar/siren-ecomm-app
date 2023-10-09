@@ -19,12 +19,11 @@ const HomePage = () => {
       <Helmet>
         <title>Siren</title>
       </Helmet>
-      {Array.isArray(products) &&
-        products.map((product) => (
-          <Col key={product.slug} sm={6} md={4} lg={3}>
-            <ProductItem product={product} />
-          </Col>
-        ))}
+      {products?.map((product) => (
+        <Col key={product.slug} sm={6} md={4} lg={3}>
+          <ProductItem product={product} />
+        </Col>
+      ))}
     </Row>
   );
 };
