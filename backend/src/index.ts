@@ -44,18 +44,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware for handling different routes based on NODE_ENV
-if (process.env.NODE_ENV === "development") {
-  // In development mode, serve a JSON response for the root route
-  app.get("/", (req: Request, res: Response) => {
-    res.json("Your API is up and running!");
-  });
-} else {
-  // In production mode or any other mode, serve static files and handle all other routes
-  app.use(express.static(path.join(__dirname, "../../frontend/dist")));
-  app.get("*", (req: Request, res: Response) =>
-    res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
-  );
-}
+// if (process.env.NODE_ENV === "development") {
+
+//   app.get("/", (req: Request, res: Response) => {
+//     res.json("Your API is up and running!");
+//   });
+// } else {
+// In production mode or any other mode, serve static files and handle all other routes
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+app.get("*", (req: Request, res: Response) =>
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
+);
+// }
 
 //routes here via routers
 app.use("/api/products", productRouter);
