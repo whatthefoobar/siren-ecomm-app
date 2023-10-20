@@ -11,7 +11,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="d-flex flex-column vh-100">
-      <ToastContainer position="bottom-center" limit={1} />
+      <ToastContainer position="top-center" limit={1} />
       <header>
         <NavigationBar />
       </header>
