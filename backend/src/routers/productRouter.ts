@@ -3,14 +3,25 @@ import asyncHandler from "express-async-handler";
 import { ProductModel } from "../models/productModel";
 
 export const productRouter = express.Router();
+
 // /api/prodcuts
 productRouter.get(
   "/",
   asyncHandler(async (req, res) => {
-    const products = await ProductModel.find();
+    const keyword = req.query.search
+      ? {
+          name: {
+            $regex: req.query.search,
+            $options: "i",
+          },
+        }
+      : {};
+
+    const products = await ProductModel.find(keyword);
     res.json(products);
   })
 );
+
 // /api/products/lacoste-shirt
 productRouter.get(
   "/:slug",

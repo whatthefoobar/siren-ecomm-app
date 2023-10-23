@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Store } from "../Store";
+import SearchBox from "./SearchBox";
 
 const NavigationBar = () => {
   const {
@@ -46,7 +47,8 @@ const NavigationBar = () => {
         <LinkContainer to="/" className="header-link">
           <Navbar.Brand>Siren</Navbar.Brand>
         </LinkContainer>
-        <Form className="flex-grow-1 d-flex me-auto">
+        <SearchBox />
+        {/* <Form className="flex-grow-1 d-flex me-auto">
           <InputGroup>
             <FormControl
               type="text"
@@ -60,7 +62,7 @@ const NavigationBar = () => {
               <i className="fas fa-search"></i>
             </Button>
           </InputGroup>
-        </Form>
+        </Form> */}
         <Navbar.Collapse>
           <Nav className="w-100 justify-content-end">
             <Link

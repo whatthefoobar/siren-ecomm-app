@@ -7,8 +7,16 @@ import { getError } from "../utils";
 import ProductItem from "../components/ProductItem";
 import { useGetProductsQuery } from "../hooks/productHooks";
 
+import { useParams } from "react-router-dom";
+
 const HomePage = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const { keyword } = useParams();
+
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = useGetProductsQuery(keyword ? keyword : "");
 
   return isLoading ? (
     <LoadingBox />
