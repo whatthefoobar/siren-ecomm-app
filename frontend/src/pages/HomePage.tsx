@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { ApiError } from "../types/ApiError";
@@ -27,15 +28,24 @@ const HomePage = () => {
       <Helmet>
         <title>Siren</title>
       </Helmet>
-      {products && products.length > 0 && <BannerCarousel />}
-      <h3
-        style={{
-          marginTop: "30px",
-          marginBottom: "20px",
-        }}
-      >
-        Latest Products
-      </h3>
+      {!keyword ? (
+        <>
+          <BannerCarousel />
+          <h3
+            style={{
+              marginTop: "30px",
+              marginBottom: "20px",
+            }}
+          >
+            Latest Products
+          </h3>
+        </>
+      ) : (
+        <Link to="/" style={{ textDecoration: "none", marginBottom: "20px" }}>
+          <Button variant="primary">Back</Button>
+        </Link>
+      )}
+
       {products!.map((product) => (
         <Col key={product.slug} sm={6} md={4} lg={3}>
           <ProductItem product={product} />

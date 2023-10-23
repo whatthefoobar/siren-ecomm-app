@@ -38,9 +38,9 @@ const router = createBrowserRouter(
       <Route path="" element={<ProtectedRoute />}>
         <Route path="shipping" element={<ShippingAddressPage />} />
         <Route path="payment" element={<PaymentMethodPage />} />
-        <Route path="/placeorder" element={<PlaceOrderPage />} />
-        <Route path="/order/:id" element={<OrderPage />} />
-        <Route path="/orderhistory" element={<OrderHistoryPage />} />
+        <Route path="placeorder" element={<PlaceOrderPage />} />
+        <Route path="order/:id" element={<OrderPage />} />
+        <Route path="orderhistory" element={<OrderHistoryPage />} />
       </Route>
     </Route>
   )
