@@ -22,7 +22,7 @@ const Banner = ({ banner }: BannerProps) => {
     <div
       style={{
         width: "100%",
-        height: "350px",
+        maxHeight: "350px",
         display: "flex",
         flexDirection: "column",
       }}
@@ -37,8 +37,7 @@ const Banner = ({ banner }: BannerProps) => {
           alt={"fashion banner"}
           style={{
             width: "100%",
-            height: "auto",
-            maxHeight: "100%",
+            height: "100%",
             objectFit: "cover",
             objectPosition: " top center",
           }}
