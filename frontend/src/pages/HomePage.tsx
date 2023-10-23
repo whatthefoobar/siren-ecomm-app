@@ -6,9 +6,7 @@ import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
 import ProductItem from "../components/ProductItem";
 import { useGetProductsQuery } from "../hooks/productHooks";
-
 import { useParams } from "react-router-dom";
-import ProductCarousel from "../components/BannerCarousel";
 import BannerCarousel from "../components/BannerCarousel";
 
 const HomePage = () => {
