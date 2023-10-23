@@ -1,6 +1,6 @@
 import { Badge, Button, Card, Col, ListGroup, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
@@ -48,6 +48,12 @@ const ProductPage = () => {
     <MessageBox variant="danger">Product Not Found</MessageBox>
   ) : (
     <div>
+      <Row>
+        <Link to="/" style={{ textDecoration: "none", marginBottom: "20px" }}>
+          <Button variant="primary">Back</Button>
+        </Link>
+      </Row>
+
       <Row>
         <Col md={6}>
           <img className="large" src={product.image} alt={product.name}></img>
