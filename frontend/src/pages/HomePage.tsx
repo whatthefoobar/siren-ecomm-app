@@ -8,6 +8,8 @@ import ProductItem from "../components/ProductItem";
 import { useGetProductsQuery } from "../hooks/productHooks";
 
 import { useParams } from "react-router-dom";
+import ProductCarousel from "../components/BannerCarousel";
+import BannerCarousel from "../components/BannerCarousel";
 
 const HomePage = () => {
   const { keyword } = useParams();
@@ -27,6 +29,15 @@ const HomePage = () => {
       <Helmet>
         <title>Siren</title>
       </Helmet>
+      {products && products.length > 0 && <BannerCarousel />}
+      <h3
+        style={{
+          marginTop: "30px",
+          marginBottom: "20px",
+        }}
+      >
+        Latest Products
+      </h3>
       {products!.map((product) => (
         <Col key={product.slug} sm={6} md={4} lg={3}>
           <ProductItem product={product} />
