@@ -18,13 +18,7 @@ export default function SearchBox() {
       navigate("/");
     }
   };
-  //   const navigate = useNavigate();
-  //   const [query, setQuery] = useState("");
 
-  //   const submitHandler = (e: React.SyntheticEvent) => {
-  //     e.preventDefault();
-  //     navigate(query ? `/search/${query}` : "/search");
-  //   };
   return (
     <Form className="flex-grow-1 d-flex me-auto" onSubmit={submitHandler}>
       <InputGroup>
