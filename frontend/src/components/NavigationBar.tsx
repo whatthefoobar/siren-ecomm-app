@@ -1,13 +1,5 @@
 import { useContext, useEffect } from "react";
-import {
-  Button,
-  Form,
-  FormControl,
-  InputGroup,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from "react-bootstrap";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Store } from "../Store";
@@ -48,21 +40,7 @@ const NavigationBar = () => {
           <Navbar.Brand>Siren</Navbar.Brand>
         </LinkContainer>
         <SearchBox />
-        {/* <Form className="flex-grow-1 d-flex me-auto">
-          <InputGroup>
-            <FormControl
-              type="text"
-              name="q"
-              id="q"
-              placeholder="Search Siren"
-              aria-label="Search Siren"
-              aria-describedby="button-search"
-            ></FormControl>
-            <Button variant="outline-primary" type="submit" id="button-search">
-              <i className="fas fa-search"></i>
-            </Button>
-          </InputGroup>
-        </Form> */}
+
         <Navbar.Collapse>
           <Nav className="w-100 justify-content-end">
             <Link
