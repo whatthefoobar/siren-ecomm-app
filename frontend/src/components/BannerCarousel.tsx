@@ -34,7 +34,7 @@ const Banner = ({ banner }: BannerProps) => {
       >
         <img
           src={banner.image}
-          alt={banner.name}
+          alt={"fashion banner"}
           style={{
             width: "100%",
             height: "auto",
