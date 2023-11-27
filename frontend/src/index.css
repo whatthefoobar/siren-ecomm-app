@@ -68,13 +68,13 @@ img.thumbnail {
 a.header-link,
 .header-link > a {
   border-radius: 2px;
-  color: white !important;
+  /* color: white !important; */
   font-weight: bold;
 }
 
 a.header-link:hover,
 .header-link > a:hover {
-  color: #f08000 !important;
+  /* color: #f08000 !important; */
   /* border: 1px white solid; */
 }
 

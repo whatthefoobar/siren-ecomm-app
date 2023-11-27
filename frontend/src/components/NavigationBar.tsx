@@ -33,7 +33,8 @@ const NavigationBar = () => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="bg-body-tertiary"
+      bg="dark"
+      variant="dark"
       expanded={expanded}
     >
       <Container>
@@ -41,10 +42,12 @@ const NavigationBar = () => {
           <Navbar.Brand>Siren</Navbar.Brand>
         </LinkContainer>
         <SearchBox />
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => setExpanded(!expanded)}
         />
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="w-100 justify-content-end">
             <Link
