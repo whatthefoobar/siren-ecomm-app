@@ -26,7 +26,6 @@ import OrderPage from "./pages/OrderPage";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import OrderHistoryPage from "./pages/OrderHistoryPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import LoadingBox from "./components/LoadingBox";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
