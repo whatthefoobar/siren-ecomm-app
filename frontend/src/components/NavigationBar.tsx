@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Store } from "../Store";
@@ -10,9 +10,9 @@ const NavigationBar = () => {
     state: { mode, cart, userInfo },
     dispatch,
   } = useContext(Store);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    //curtesy of bootstrap
     document.body.setAttribute("data-bs-theme", mode);
   }, [mode]);
 
@@ -28,20 +28,24 @@ const NavigationBar = () => {
     localStorage.removeItem("paymentMethod");
     window.location.href = "/signin";
   };
+
   return (
     <Navbar
-      className="d-flex flex-column align-items-stretch p-2 pb-0 mb-3"
-      bg="dark"
-      variant="dark"
+      collapseOnSelect
       expand="lg"
+      className="bg-body-tertiary"
+      expanded={expanded}
     >
-      <div className="d-flex justify-content-between align-items-center">
+      <Container>
         <LinkContainer to="/" className="header-link">
           <Navbar.Brand>Siren</Navbar.Brand>
         </LinkContainer>
         <SearchBox />
-
-        <Navbar.Collapse>
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          onClick={() => setExpanded(!expanded)}
+        />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="w-100 justify-content-end">
             <Link
               to="#"
@@ -99,7 +103,7 @@ const NavigationBar = () => {
             </Link>
           </Nav>
         </Navbar.Collapse>
-      </div>
+      </Container>
     </Navbar>
   );
 };
