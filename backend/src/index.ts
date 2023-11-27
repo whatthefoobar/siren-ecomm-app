@@ -40,12 +40,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// disable this on deploy
-// not needed but I like it
-// app.get("/", (req: Request, res: Response) => {
-//   res.json("Your API is up and running!");
-// });
-
 //routes here via routers
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
@@ -53,19 +47,21 @@ app.use("/api/orders", orderRouter);
 app.use("/api/seed", seedRouter);
 app.use("/api/keys", keyRouter);
 
-// for deployment
-app.use(express.static(path.join(__dirname, "../../frontend/dist")));
-app.get("*", (req: Request, res: Response) =>
-  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
-);
+// Check the environment
+const environment = process.env.NODE_ENV;
 
-// previously
-// app.get("/api/products/:slug", (req: Request, res: Response) => {
-//   res.json(sampleProducts.find((x) => x.slug === req.params.slug));
-// });
+if (environment === "production") {
+  app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+  app.get("*", (req: Request, res: Response) =>
+    res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
+  );
+} else {
+  app.get("/", (req: Request, res: Response) => {
+    res.json("Your API is up and running!");
+  });
+}
 
-// const PORT = 4000;
 const PORT: number = parseInt((process.env.PORT || "4000") as string, 10);
 app.listen(PORT, () => {
-  console.log(`server started at http://localhost:${PORT}`);
+  console.log(`Server started at http://localhost:${PORT}`);
 });
