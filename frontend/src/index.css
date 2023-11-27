@@ -68,7 +68,7 @@ img.thumbnail {
 a.header-link,
 .header-link > a {
   border-radius: 2px;
-  /* color: white !important; */
+  color: white !important;
   font-weight: bold;
 }
 
@@ -99,4 +99,7 @@ a.header-link:hover,
 }
 .sub-header {
   background-color: #263f49;
+}
+.space {
+  margin-left: 20px;
 }

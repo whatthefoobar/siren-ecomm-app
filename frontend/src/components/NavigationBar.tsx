@@ -41,9 +41,11 @@ const NavigationBar = () => {
         <LinkContainer to="/" className="header-link">
           <Navbar.Brand>Siren</Navbar.Brand>
         </LinkContainer>
+
         <SearchBox />
 
         <Navbar.Toggle
+          className="space"
           aria-controls="responsive-navbar-nav"
           onClick={() => setExpanded(!expanded)}
         />
