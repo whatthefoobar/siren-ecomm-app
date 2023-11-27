@@ -1,10 +1,15 @@
-import Spinner from "react-bootstrap/Spinner";
+import { Spinner } from "react-bootstrap";
 
 const LoadingBox = () => {
   return (
-    <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+    <div
+      className="d-flex justify-content-center align-items-center"
+      style={{ height: "100vh" }}
+    >
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </div>
   );
 };
 
